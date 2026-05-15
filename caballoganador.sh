@@ -261,7 +261,7 @@ zone "$SUB.$DOM"
 {
     type master;
     file "/etc/bind/zonas/db.$SUB.$DOM";
-    allow-query { 127.0.0.1; $RED.0/$MASK; $REDSUB.0/$MASKSUB; };
+    allow-query { 127.0.0.1; $REDSUB.0/$MASKSUB; };
     allow-transfer { $IP_SLAVE_MAIN; };
     also-notify { $IP_SLAVE_MAIN; };
 };
@@ -270,7 +270,7 @@ zone "$INV_SUB.in-addr.arpa"
 {
     type master;
     file "/etc/bind/zonas/db.$REDSUB";
-    allow-query { 127.0.0.1; $RED.0/$MASK; $REDSUB.0/$MASKSUB; };
+    allow-query { 127.0.0.1; $REDSUB.0/$MASKSUB; };
     allow-transfer { $IP_SLAVE_MAIN; };
     also-notify { $IP_SLAVE_MAIN; };
 };
@@ -292,7 +292,7 @@ zone "$SUB.$DOM"
     type slave;
     file "/etc/bind/zonas/db.$SUB.$DOM";
     masters {$IP_MASTER;};
-    allow-query { 127.0.0.1; $RED.0/$MASK; $REDSUB.0/$MASKSUB; };
+    allow-query { 127.0.0.1; $REDSUB.0/$MASKSUB; };
 };
 
 zone "$INV_SUB.in-addr.arpa"
@@ -300,7 +300,7 @@ zone "$INV_SUB.in-addr.arpa"
     type slave;
     file "/etc/bind/zonas/db.$REDSUB";
     masters {$IP_MASTER;};
-    allow-query { 127.0.0.1; $RED.0/$MASK; $REDSUB.0/$MASKSUB; };
+    allow-query { 127.0.0.1; $REDSUB.0/$MASKSUB; };
 };
 
 EOF
